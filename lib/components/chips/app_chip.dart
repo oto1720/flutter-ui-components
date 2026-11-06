@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// NOTE: 完成版のコードは `main` ブランチにあります。詰まったら参照してください。
+
 /// 選択状態を持てる共通チップ。
 ///
 /// 設計方針:
@@ -21,10 +23,8 @@ class AppChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FilterChip(
-      label: Text(label),
-      selected: selected,
-      onSelected: onSelected,
-    );
+    // TODO(handson): FilterChip を使って実装する。
+    //  - label / selected / onSelected をそのまま FilterChip に渡す
+    return const Placeholder(fallbackHeight: 32, fallbackWidth: 80);
   }
 }

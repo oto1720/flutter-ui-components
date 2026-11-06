@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/app_spacing.dart';
-import '../../theme/app_text_styles.dart';
+// NOTE: 完成版のコードは `main` ブランチにあります。詰まったら参照してください。
 
 /// 「見出し＋中身」をひとまとめにする共通レイアウト。
 ///
@@ -20,16 +19,12 @@ class AppSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: AppTextStyles.heading),
-          const SizedBox(height: AppSpacing.md),
-          ...children,
-        ],
-      ),
+    // TODO(handson): Column で「見出し(title) + children」を縦に並べる。
+    //  - 見出しは AppTextStyles.heading
+    //  - 見出しと中身の間、セクションの上下に AppSpacing で余白を入れる
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [Text(title), ...children],
     );
   }
 }

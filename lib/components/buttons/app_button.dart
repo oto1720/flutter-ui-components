@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/app_spacing.dart';
+// NOTE: 完成版のコードは `main` ブランチにあります。詰まったら参照してください。
+//       このファイルはハンズオンの開始地点（TODO 雛形）です。
 
 /// ボタンの種類。
 ///
@@ -13,9 +14,8 @@ enum AppButtonType { primary, secondary, outlined }
 ///
 /// 設計方針:
 /// - [label] と [onPressed] は必須（required）。ボタンの本質なので省略させない。
-/// - [type] と [isLoading] は任意（デフォルトあり）。バリエーションは任意指定。
+/// - [type] と [isLoading] は任意（デフォルトあり）。
 /// - [onPressed] に null を渡すと「無効（disabled）」状態になる。
-///   これは Flutter 標準ボタンの慣習に合わせている。
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
@@ -32,47 +32,11 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ローディング中は押せないようにする（onPressed を無効化）。
-    final effectiveOnPressed = isLoading ? null : onPressed;
-
-    // ローディング中はスピナー、それ以外はラベルを表示する。
-    final child = isLoading
-        ? const SizedBox(
-            width: 18,
-            height: 18,
-            child: CircularProgressIndicator(strokeWidth: 2),
-          )
-        : Text(label);
-
-    final shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-    );
-    const padding = EdgeInsets.symmetric(
-      horizontal: AppSpacing.lg,
-      vertical: AppSpacing.md,
-    );
-
-    // type によって使う Flutter 標準ボタンを切り替える。
-    // 色は Theme（ColorScheme）から取るので、ここに色を直書きしない。
-    switch (type) {
-      case AppButtonType.primary:
-        return FilledButton(
-          onPressed: effectiveOnPressed,
-          style: FilledButton.styleFrom(shape: shape, padding: padding),
-          child: child,
-        );
-      case AppButtonType.secondary:
-        return FilledButton.tonal(
-          onPressed: effectiveOnPressed,
-          style: FilledButton.styleFrom(shape: shape, padding: padding),
-          child: child,
-        );
-      case AppButtonType.outlined:
-        return OutlinedButton(
-          onPressed: effectiveOnPressed,
-          style: OutlinedButton.styleFrom(shape: shape, padding: padding),
-          child: child,
-        );
-    }
+    // TODO(handson): ボタンを実装する。
+    //  1. isLoading 中は onPressed を無効化し、CircularProgressIndicator を表示する
+    //  2. type (primary/secondary/outlined) に応じて
+    //     FilledButton / FilledButton.tonal / OutlinedButton を出し分ける
+    //  3. 色は直書きせず Theme に任せ、角丸・余白は AppSpacing を使う
+    return const Placeholder(fallbackHeight: 48);
   }
 }
