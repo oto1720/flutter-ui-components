@@ -42,9 +42,10 @@ enum AppButtonTone {
 
 /// ボタンの大きさ。高さ・余白・文字サイズ・アイコンサイズをまとめて切り替える。
 enum AppButtonSize {
-  sm(height: 32, horizontalPadding: 12, fontSize: 13, iconSize: 16),
-  md(height: 40, horizontalPadding: 16, fontSize: 14, iconSize: 18),
-  lg(height: 48, horizontalPadding: 24, fontSize: 16, iconSize: 20);
+  // ミニマル・モノクロ版: 指で押しやすい大きめのボタンにしている。
+  sm(height: 36, horizontalPadding: 16, fontSize: 13, iconSize: 16),
+  md(height: 48, horizontalPadding: 24, fontSize: 15, iconSize: 18),
+  lg(height: 56, horizontalPadding: 32, fontSize: 16, iconSize: 20);
 
   const AppButtonSize({
     required this.height,

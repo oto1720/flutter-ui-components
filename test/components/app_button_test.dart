@@ -84,7 +84,10 @@ void main() {
         matching: find.byType(RichText),
       ),
     );
-    expect(text.text.style?.fontWeight, FontWeight.w600);
+    expect(
+      text.text.style?.fontWeight,
+      AppTheme.light.textTheme.labelLarge?.fontWeight,
+    );
   });
 
   testWidgets('tone: danger は Theme の error 色になる', (tester) async {
@@ -105,7 +108,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    final shape = material(tester).shape! as RoundedRectangleBorder;
+    final shape = material(tester).shape! as OutlinedBorder;
     expect(shape.side.color, AppTheme.light.colorScheme.error);
   });
 

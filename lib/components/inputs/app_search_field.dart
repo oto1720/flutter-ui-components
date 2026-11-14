@@ -44,6 +44,13 @@ class _AppSearchFieldState extends State<AppSearchField> {
     super.dispose();
   }
 
+  /// 検索欄はピル型にする（他の入力欄より丸い）。
+  OutlineInputBorder _border([BorderSide side = BorderSide.none]) =>
+      OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
+        borderSide: side,
+      );
+
   void _clear() {
     _controller.clear();
     widget.onClear?.call();
@@ -70,9 +77,14 @@ class _AppSearchFieldState extends State<AppSearchField> {
                     onPressed: _clear,
                   )
                 : null,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
-              borderSide: BorderSide.none,
+            border: _border(),
+            enabledBorder: _border(),
+            // フォーカス時だけ線を出す（Theme の入力欄と同じルール）。
+            focusedBorder: _border(
+              BorderSide(
+                color: Theme.of(context).colorScheme.primary,
+                width: 1.5,
+              ),
             ),
           ),
         );

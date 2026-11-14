@@ -35,6 +35,8 @@ class AppDropdown<T> extends StatelessWidget {
     return DropdownButtonFormField<T>(
       initialValue: value,
       onChanged: onChanged,
+      // 選択中の値は、テキスト入力欄と同じ文字スタイルで表示する。
+      style: Theme.of(context).textTheme.bodyLarge,
       hint: hintText != null ? Text(hintText!) : null,
       decoration: InputDecoration(
         labelText: label,
