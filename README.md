@@ -13,6 +13,14 @@ AppButton(
   label: 'ログイン',
   onPressed: () {},
 )
+
+// 見た目の強さ（variant）と意味（tone）は別々に指定できる
+AppButton(
+  label: '削除',
+  variant: AppButtonVariant.outlined,
+  tone: AppButtonTone.danger,
+  onPressed: () {},
+)
 ```
 
 ## 🎯 到達目標
@@ -28,16 +36,17 @@ AppButton(
 lib/
 ├── main.dart              # 作ったコンポーネントを並べたサンプル画面（「使う」成果物）
 ├── components/            # 再利用コンポーネント
-│   ├── buttons/           # AppButton（primary / secondary / outlined / loading / disabled）
+│   ├── buttons/           # AppButton（variant × tone × size / loading / disabled）ほか
 │   ├── text_fields/       # AppTextField（通常 / エラー / パスワード）
 │   ├── cards/             # AppCard（タイトル・説明・画像）
 │   ├── chips/             # AppChip（選択 / 未選択）
 │   └── layout/            # AppSection（見出し＋中身の共通レイアウト）
 └── theme/                 # デザインシステム
-    ├── app_colors.dart    # カラーパレット
+    ├── app_colors.dart    # カラーパレット（seed と意味色）
+    ├── app_semantic_colors.dart  # success / warning を Theme に載せる ThemeExtension
     ├── app_spacing.dart   # 余白・角丸
     ├── app_text_styles.dart
-    └── app_theme.dart     # ThemeData（Material 3）
+    └── app_theme.dart     # ThemeData（Material 3 / Light・Dark / 部品別テーマ）
 
 widgetbook/
 └── main.dart              # UI カタログ（部品を単体でプレビュー）

@@ -8,7 +8,7 @@ import '../../theme/app_text_styles.dart';
 /// 設計方針:
 /// - [title] は必須。[description] と [imageUrl] は任意。
 ///   「ある項目は出す／ない項目は出さない」を build の中で分岐する。
-/// - 余白や角丸は AppSpacing を参照し、見た目を他コンポーネントと揃える。
+/// - 余白は AppSpacing を参照する。角丸は Theme の `cardTheme` で決めている。
 /// - [onTap] を渡すとカード全体をタップできる。
 class AppCard extends StatelessWidget {
   const AppCard({
@@ -27,10 +27,6 @@ class AppCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-      ),
       child: InkWell(
         onTap: onTap,
         child: Column(

@@ -34,14 +34,15 @@
 
 | コンポーネント | 実装内容 |
 |---|---|
-| `AppButton` | Primary / Secondary / Outlined / Disabled / Loading |
+| `AppButton` | variant（filled / tonal / outlined …）× tone（primary / danger / success）× size、Disabled / Loading |
 | `AppTextField` | 通常 / エラー / パスワード |
 | `AppCard` | タイトル・説明・画像 |
 | `AppChip` | 選択状態 / 通常状態 |
 | `AppSection` | セクションの共通レイアウト |
 
 重要なのは、コードを書くだけでなく **「なぜこの設計にしたのか」** を理解すること。
-（例：色違いのボタンを別 Widget にせず、1 つの `AppButton` に `enum` でバリエーションを持たせる理由）
+（例：色違いのボタンを別 Widget にせず、1 つの `AppButton` に `enum` でバリエーションを持たせる理由。
+さらに「見た目の強さ」と「意味」を別の `enum` に分けると、組み合わせが自由になる理由）
 
 ## 発展（時間が余ったら / 次回）
 

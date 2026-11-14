@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'components/buttons/app_button.dart';
+import 'components/buttons/app_icon_button.dart';
 import 'components/cards/app_card.dart';
 import 'components/chips/app_chip.dart';
+import 'components/display/app_avatar.dart';
+import 'components/display/app_rating_stars.dart';
+import 'components/display/app_tag.dart';
+import 'components/feedback/app_dialog.dart';
+import 'components/feedback/app_snackbar.dart';
+import 'components/inputs/app_checkbox.dart';
+import 'components/inputs/app_switch.dart';
 import 'components/layout/app_section.dart';
 import 'components/text_fields/app_text_field.dart';
 import 'theme/app_spacing.dart';
@@ -22,6 +30,7 @@ class DemoApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter UI Components Lab',
       theme: AppTheme.light, // ← ここで全体にテーマが効く
+      darkTheme: AppTheme.dark, // 端末がダークモードならこちらが使われる
       debugShowCheckedModeBanner: false,
       home: const _HomePage(),
     );
@@ -38,6 +47,9 @@ class _HomePage extends StatefulWidget {
 class _HomePageState extends State<_HomePage> {
   bool _loading = false;
   bool _chipSelected = false;
+  bool _agree = false;
+  bool _notify = true;
+  int _rating = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +67,13 @@ class _HomePageState extends State<_HomePage> {
                 const SizedBox(height: AppSpacing.sm),
                 AppButton(
                   label: 'Secondary',
-                  type: AppButtonType.secondary,
+                  variant: AppButtonVariant.tonal,
                   onPressed: () {},
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 AppButton(
                   label: 'Outlined',
-                  type: AppButtonType.outlined,
+                  variant: AppButtonVariant.outlined,
                   onPressed: () {},
                 ),
                 const SizedBox(height: AppSpacing.sm),
@@ -114,6 +126,78 @@ class _HomePageState extends State<_HomePage> {
                     const AppChip(label: 'Flutter'),
                     const AppChip(label: 'Dart'),
                   ],
+                ),
+              ],
+            ),
+            AppSection(
+              title: 'Inputs',
+              children: [
+                AppCheckbox(
+                  label: '利用規約に同意する',
+                  value: _agree,
+                  onChanged: (v) => setState(() => _agree = v),
+                ),
+                AppSwitch(
+                  label: '通知を受け取る',
+                  value: _notify,
+                  onChanged: (v) => setState(() => _notify = v),
+                ),
+              ],
+            ),
+            AppSection(
+              title: 'Display',
+              children: [
+                Row(
+                  children: [
+                    const AppAvatar(initials: 'KT'),
+                    const SizedBox(width: AppSpacing.md),
+                    const AppTag(label: '成功', status: AppTagStatus.success),
+                    const SizedBox(width: AppSpacing.sm),
+                    const AppTag(label: 'エラー', status: AppTagStatus.error),
+                    const Spacer(),
+                    AppIconButton(
+                      icon: Icons.favorite,
+                      variant: AppIconButtonVariant.outlined,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.sm),
+                AppRatingStars(
+                  rating: _rating,
+                  onRatingChanged: (v) => setState(() => _rating = v),
+                ),
+              ],
+            ),
+            AppSection(
+              title: 'Feedback',
+              children: [
+                AppButton(
+                  label: 'スナックバーを表示',
+                  variant: AppButtonVariant.tonal,
+                  onPressed: () => AppSnackbar.show(
+                    context,
+                    '保存しました',
+                    type: AppSnackbarType.success,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.sm),
+                AppButton(
+                  label: '削除ダイアログ',
+                  tone: AppButtonTone.danger,
+                  onPressed: () async {
+                    final ok = await AppDialog.confirm(
+                      context,
+                      title: '削除しますか？',
+                      message: 'この操作は取り消せません。',
+                      confirmLabel: '削除',
+                      isDestructive: true,
+                    );
+                    if (ok && context.mounted) {
+                      AppSnackbar.show(context, '削除しました',
+                          type: AppSnackbarType.info);
+                    }
+                  },
                 ),
               ],
             ),

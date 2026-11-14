@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/app_spacing.dart';
-
 /// アプリ共通のテキスト入力フィールド。
 ///
 /// 設計方針:
@@ -10,6 +8,8 @@ import '../../theme/app_spacing.dart';
 ///   状態を bool ではなく「エラーメッセージの有無」で表すと、
 ///   表示する文言もまとめて扱えて分かりやすい。
 /// - [obscureText] を true にするとパスワード入力欄になる。
+/// - 塗り・枠線・角丸は Theme の `inputDecorationTheme` で決めている
+///   （app_theme.dart）。ここでは指定しないので、他の入力欄と必ず揃う。
 class AppTextField extends StatelessWidget {
   const AppTextField({
     super.key,
@@ -38,10 +38,6 @@ class AppTextField extends StatelessWidget {
         labelText: label,
         hintText: hintText,
         errorText: errorText, // null ならエラー表示されない
-        filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
-        ),
       ),
     );
   }
