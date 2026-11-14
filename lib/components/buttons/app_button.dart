@@ -170,10 +170,8 @@ class AppButton extends StatelessWidget {
           ),
         };
 
-    // 大きさ・形は全 variant で共通。
-    final shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-    );
+    // 大きさは全 variant で共通。形（角丸）はここでは決めず、Theme の
+    // filledButtonTheme などに任せる。テーマを差し替えるだけで形も変わる。
     final padding = EdgeInsets.symmetric(horizontal: size.horizontalPadding);
     final minimumSize = Size(64, size.height);
     // Theme の labelLarge を土台にして、大きさだけ変える（太さを失わない）。
@@ -187,7 +185,6 @@ class AppButton extends StatelessWidget {
       AppButtonVariant.filled => FilledButton.styleFrom(
         backgroundColor: main,
         foregroundColor: onMain,
-        shape: shape,
         padding: padding,
         minimumSize: minimumSize,
         textStyle: textStyle,
@@ -196,7 +193,6 @@ class AppButton extends StatelessWidget {
       AppButtonVariant.tonal => FilledButton.styleFrom(
         backgroundColor: container,
         foregroundColor: onContainer,
-        shape: shape,
         padding: padding,
         minimumSize: minimumSize,
         textStyle: textStyle,
@@ -204,7 +200,6 @@ class AppButton extends StatelessWidget {
       ),
       AppButtonVariant.elevated => ElevatedButton.styleFrom(
         foregroundColor: main,
-        shape: shape,
         padding: padding,
         minimumSize: minimumSize,
         textStyle: textStyle,
@@ -212,7 +207,6 @@ class AppButton extends StatelessWidget {
       ),
       AppButtonVariant.outlined => OutlinedButton.styleFrom(
         foregroundColor: main,
-        shape: shape,
         padding: padding,
         minimumSize: minimumSize,
         textStyle: textStyle,
@@ -229,7 +223,6 @@ class AppButton extends StatelessWidget {
       ),
       AppButtonVariant.text => TextButton.styleFrom(
         foregroundColor: main,
-        shape: shape,
         padding: padding,
         minimumSize: minimumSize,
         textStyle: textStyle,
