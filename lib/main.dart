@@ -22,6 +22,7 @@ class DemoApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter UI Components Lab',
       theme: AppTheme.light, // ← ここで全体にテーマが効く
+      darkTheme: AppTheme.dark, // 端末がダークモードならこちらが使われる
       debugShowCheckedModeBanner: false,
       home: const _HomePage(),
     );
@@ -55,13 +56,13 @@ class _HomePageState extends State<_HomePage> {
                 const SizedBox(height: AppSpacing.sm),
                 AppButton(
                   label: 'Secondary',
-                  type: AppButtonType.secondary,
+                  variant: AppButtonVariant.tonal,
                   onPressed: () {},
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 AppButton(
                   label: 'Outlined',
-                  type: AppButtonType.outlined,
+                  variant: AppButtonVariant.outlined,
                   onPressed: () {},
                 ),
                 const SizedBox(height: AppSpacing.sm),

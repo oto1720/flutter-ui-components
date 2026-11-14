@@ -31,7 +31,8 @@ class AppTextField extends StatelessWidget {
     // TODO(handson): TextField を使って入力欄を実装する。
     //  - InputDecoration に labelText / hintText / errorText を渡す
     //  - obscureText を TextField に渡してパスワード入力に対応する
-    //  - border を OutlineInputBorder にして角丸は AppSpacing を使う
+    //  - 塗り・枠線・角丸は Theme の inputDecorationTheme（app_theme.dart）で
+    //    決めてあるので、ここでは指定しなくてよい
     return const Placeholder(fallbackHeight: 56);
   }
 }

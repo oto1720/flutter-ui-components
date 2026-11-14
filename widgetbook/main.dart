@@ -26,6 +26,7 @@ class WidgetbookApp extends StatelessWidget {
         MaterialThemeAddon(
           themes: [
             WidgetbookTheme(name: 'Light', data: AppTheme.light),
+            WidgetbookTheme(name: 'Dark', data: AppTheme.dark),
           ],
         ),
         TextScaleAddon(),
@@ -45,7 +46,7 @@ class WidgetbookApp extends StatelessWidget {
               name: 'Secondary',
               builder: (context) => AppButton(
                 label: 'Secondary',
-                type: AppButtonType.secondary,
+                variant: AppButtonVariant.tonal,
                 onPressed: () {},
               ),
             ),
@@ -53,7 +54,7 @@ class WidgetbookApp extends StatelessWidget {
               name: 'Outlined',
               builder: (context) => AppButton(
                 label: 'Outlined',
-                type: AppButtonType.outlined,
+                variant: AppButtonVariant.outlined,
                 onPressed: () {},
               ),
             ),
