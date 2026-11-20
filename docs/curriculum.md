@@ -48,5 +48,6 @@
 
 - **Golden Test** — UI の見た目を画像で回帰テスト
 - **Widgetbook のコード生成** — アノテーション + `build_runner`
+- **Flutter Widget Previewer** — `@Preview` でコンポーネントの隣にプレビューを書く（`flutter widget-preview start`）。Widgetbook との使い分け（手元確認 / 共有カタログ）
 - **Freezed** — 状態・データモデルの定義
 - **Melos** — 共通 UI パッケージのモノレポ管理
