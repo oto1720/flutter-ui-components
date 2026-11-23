@@ -18,9 +18,9 @@
 | 20分 | ① Widget とコンポーネント設計の基礎 | StatelessWidget / StatefulWidget、Row / Column / Stack / Container、Widget の分割と責務 |
 | 30分 | ② 再利用可能な Widget を作る | `AppButton` を題材に、コンストラクタでの値渡し、`required` / optional、`enum` でのバリエーション管理、ローディング状態 |
 | 20分 | ③ Theme・デザインシステム | `ColorScheme` / `TextTheme` / Material 3、共通カラー・余白・角丸、アプリ全体のデザイン統一 |
-| 25分 | ④ Widgetbook 導入・設定 | 別エントリ（`-t`）での起動、本体から切り離して部品を確認するという考え方 |
+| 27分 | ④ Widgetbook 導入・設定 | 別エントリ（`-t`）での起動、本体から切り離して部品を確認するという考え方。Flutter 標準の Widget Previewer（`@Preview`）との使い分け（手元確認 / 共有カタログ） |
 | 30分 | ⑤ Catalog へのコンポーネント登録 | `WidgetbookComponent` / `WidgetbookUseCase` でバリエーションを登録・確認 |
-| 25分 | ⑥ 各自で UI Kit を拡張 | `AppCard` / `AppChip` などを実装 → Widgetbook に登録 → Pull Request |
+| 23分 | ⑥ 各自で UI Kit を拡張 | `AppCard` / `AppChip` などを実装 → Widgetbook に登録 → Pull Request |
 
 ## 進め方（GitHub 運用）
 

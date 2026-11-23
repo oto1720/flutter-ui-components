@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../previews/app_preview.dart';
 import '../../theme/app_semantic_colors.dart';
 import '../../theme/app_spacing.dart';
 
@@ -318,3 +319,39 @@ class _PressScaleState extends State<_PressScale> {
     );
   }
 }
+
+// ----------------------------------------------------------------------------
+// Widget Previews（`flutter widget-preview start` で確認）
+// ----------------------------------------------------------------------------
+
+@AppPreview(group: 'AppButton', name: 'Filled')
+Widget appButtonFilledPreview() => AppButton(label: '送信する', onPressed: () {});
+
+@AppPreview(group: 'AppButton', name: 'Variants')
+Widget appButtonVariantsPreview() => Wrap(
+  spacing: AppSpacing.sm,
+  runSpacing: AppSpacing.sm,
+  children: [
+    for (final variant in AppButtonVariant.values)
+      AppButton(label: variant.name, variant: variant, onPressed: () {}),
+  ],
+);
+
+@AppPreview(group: 'AppButton', name: 'Tones')
+Widget appButtonTonesPreview() => Wrap(
+  spacing: AppSpacing.sm,
+  runSpacing: AppSpacing.sm,
+  children: [
+    for (final tone in AppButtonTone.values)
+      AppButton(label: tone.name, tone: tone, onPressed: () {}),
+  ],
+);
+
+@AppPreview(group: 'AppButton', name: 'Disabled / Loading')
+Widget appButtonStatesPreview() => Wrap(
+  spacing: AppSpacing.sm,
+  children: [
+    const AppButton(label: '無効', onPressed: null),
+    AppButton(label: '送信中', isLoading: true, onPressed: () {}),
+  ],
+);

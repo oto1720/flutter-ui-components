@@ -79,6 +79,22 @@ flutter run -t widgetbook/main.dart -d chrome
 左のツリーからコンポーネントを選ぶと、Primary / Disabled / Loading などの状態を切り替えて確認できます。
 上部のツールバーでテーマや文字サイズも変えられます。
 
+### Widget Previewer（書きながら手元で確認）
+
+```bash
+flutter widget-preview start
+```
+
+Flutter 標準の [Widget Previewer](https://flutter.dev/to/widget-previews) です。追加パッケージは要りません。
+コンポーネントのファイルに `@AppPreview(...)` を付けた関数を書くと、Light / Dark の 2 枚がブラウザに表示されます（共通設定は `lib/previews/app_preview.dart`）。
+いまは `AppButton` / `AppCard` / `AppChip` にプレビューがあります。
+
+| | Widgetbook | Widget Previewer |
+|---|---|---|
+| 用途 | チームで見る UI カタログ | 実装中の手元確認 |
+| 書く場所 | `widgetbook/main.dart` | コンポーネントと同じファイル |
+| 状態の切り替え | Knobs で対話的に | 状態ごとにプレビュー関数を並べる |
+
 ### テスト
 
 ```bash
@@ -101,7 +117,7 @@ flutter analyze
 1. `git switch start` でハンズオン開始地点へ
 2. 自分の作業ブランチを切る（例: `git switch -c feature/app-button`）
 3. [Issues](../../issues) のタスク（AppButton / AppTextField / …）を 1 つ実装
-4. Widgetbook に UseCase を登録して見た目を確認
+4. Widget Previewer で見ながら実装し、仕上がったら Widgetbook に UseCase を登録
 5. Pull Request を出す → 全員のコンポーネントを Catalog に統合
 
 ## 📚 カリキュラム

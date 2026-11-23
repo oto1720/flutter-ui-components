@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../previews/app_preview.dart';
+import '../../theme/app_spacing.dart';
+
 /// 選択状態を持てる共通チップ。
 ///
 /// 設計方針:
@@ -28,3 +31,17 @@ class AppChip extends StatelessWidget {
     );
   }
 }
+
+// ----------------------------------------------------------------------------
+// Widget Previews（`flutter widget-preview start` で確認）
+// ----------------------------------------------------------------------------
+
+@AppPreview(group: 'AppChip', name: 'Selected / Unselected')
+Widget appChipStatesPreview() => Wrap(
+  spacing: AppSpacing.sm,
+  children: [
+    AppChip(label: '選択中', selected: true, onSelected: (_) {}),
+    AppChip(label: '未選択', onSelected: (_) {}),
+    const AppChip(label: '無効'),
+  ],
+);

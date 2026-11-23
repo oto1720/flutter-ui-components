@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../previews/app_preview.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_text_styles.dart';
 
@@ -67,3 +68,19 @@ class AppCard extends StatelessWidget {
     );
   }
 }
+
+// ----------------------------------------------------------------------------
+// Widget Previews（`flutter widget-preview start` で確認）
+// ----------------------------------------------------------------------------
+// 画像あり（Image.network）は Previewer の Web 環境で読み込み制限を受けることが
+// あるので、ここではテキストのみの状態を確認する。
+
+@AppPreview(group: 'AppCard', name: 'Title only')
+Widget appCardTitleOnlyPreview() => const AppCard(title: 'カードのタイトル');
+
+@AppPreview(group: 'AppCard', name: 'With description')
+Widget appCardWithDescriptionPreview() => AppCard(
+  title: 'Flutter UI Components Lab',
+  description: '再利用可能な UI コンポーネントを設計して、カタログ化する勉強会です。',
+  onTap: () {},
+);
